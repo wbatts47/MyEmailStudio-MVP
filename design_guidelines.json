@@ -1,0 +1,165 @@
+{
+  "design_system": {
+    "identity": {
+      "name": "Email Studio",
+      "vibe": "Dark Creative Workspace. Linear-style precision meets Premium Editorial. Confident, quiet luxury.",
+      "theme": "dark",
+      "voice": "Professional, direct, slightly elegant."
+    },
+    "colors": {
+      "palette": {
+        "background": "#0a0a0a",
+        "surface": "#141414",
+        "surface_highlight": "#1a1a1a",
+        "border": "#2a2a2a",
+        "primary": "#4CAF50",
+        "secondary": "#F5D000",
+        "text_primary": "#f0f0f0",
+        "text_secondary": "#888888",
+        "danger": "#FF3B30"
+      },
+      "tailwind_mapping": {
+        "bg-background": "#0a0a0a",
+        "bg-card": "#141414",
+        "border-border": "#2a2a2a",
+        "text-primary": "#f0f0f0",
+        "text-muted": "#888888",
+        "bg-primary": "#4CAF50",
+        "text-primary-foreground": "#0a0a0a",
+        "bg-secondary": "#F5D000",
+        "text-secondary-foreground": "#0a0a0a"
+      },
+      "usage_rules": {
+        "gradients": "NO gradients for backgrounds. Use subtle radial glows (green/gold) only for highlights.",
+        "text": "Never use pure white (#FFFFFF). Use #f0f0f0 for headings.",
+        "accents": "Use Green (#4CAF50) for primary actions (Voice, Go). Use Gold (#F5D000) for premium badges or 'Pro' features."
+      }
+    },
+    "typography": {
+      "fonts": {
+        "heading": "DM Serif Display, serif",
+        "body": "DM Sans, sans-serif",
+        "mono": "JetBrains Mono, monospace"
+      },
+      "scale": {
+        "h1": "text-5xl md:text-7xl tracking-tight leading-[0.95]",
+        "h2": "text-4xl md:text-5xl tracking-tight leading-tight",
+        "h3": "text-2xl md:text-3xl tracking-tight",
+        "body_lg": "text-lg md:text-xl leading-relaxed text-secondary",
+        "body_base": "text-base leading-relaxed text-secondary",
+        "label": "text-xs font-bold uppercase tracking-[0.2em] text-primary"
+      },
+      "import_url": "https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100..1000&family=DM+Serif+Display&display=swap"
+    },
+    "spacing": {
+      "container_padding": "px-6 md:px-12 lg:px-24",
+      "section_gap": "py-24 md:py-32",
+      "element_gap": "gap-6 md:gap-12"
+    },
+    "ui_components": {
+      "buttons": {
+        "primary": "bg-primary text-black hover:bg-primary/90 rounded-full px-8 py-4 font-medium transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(76,175,80,0.3)]",
+        "secondary": "bg-transparent border border-border text-primary hover:border-primary hover:text-primary rounded-full px-8 py-4 transition-all hover:bg-primary/10",
+        "ghost": "text-muted hover:text-white transition-colors"
+      },
+      "cards": {
+        "base": "bg-surface border border-border rounded-xl p-8 hover:border-primary/50 transition-colors duration-300 relative overflow-hidden group",
+        "glass": "bg-white/5 backdrop-blur-md border border-white/10"
+      },
+      "inputs": {
+        "base": "bg-surface_highlight border border-border focus:border-primary rounded-lg px-4 py-3 text-white placeholder:text-muted/50 outline-none transition-all"
+      }
+    },
+    "motion": {
+      "library": "framer-motion",
+      "presets": {
+        "fade_up": {
+          "initial": { "opacity": 0, "y": 40 },
+          "whileInView": { "opacity": 1, "y": 0 },
+          "viewport": { "once": true, "margin": "-100px" },
+          "transition": { "duration": 0.6, "ease": "easeOut" }
+        },
+        "stagger_container": {
+          "hidden": { "opacity": 0 },
+          "show": {
+            "opacity": 1,
+            "transition": { "staggerChildren": 0.1 }
+          }
+        },
+        "hover_glow": {
+          "whileHover": { "boxShadow": "0 0 25px rgba(76,175,80,0.4)" }
+        }
+      }
+    }
+  },
+  "sections": {
+    "hero": {
+      "layout": "Centered editorial",
+      "elements": [
+        "Headline: 'Emails from Voice.' in DM Serif Display",
+        "Subhead: 'Turn a 30-second voice note into a production-ready HTML email campaign.'",
+        "Visual: Large central 'Mic' button. On click/hover -> Explodes into Green Audio Waveform (Canvas or CSS animation).",
+        "Background: Subtle noise texture + Green abstract fluid overlay (low opacity)."
+      ],
+      "image_ref": "https://images.unsplash.com/photo-1707346310176-52f43d7606ea?crop=entropy&cs=srgb&fm=jpg&q=85 (Use as heavy overlay/mix-blend-mode)"
+    },
+    "demo_mock": {
+      "layout": "Split Screen (50/50)",
+      "left_panel": {
+        "title": "Input",
+        "content": "Dark panel, 'Recording...' state, animated waveform.",
+        "style": "bg-surface border-r border-border"
+      },
+      "right_panel": {
+        "title": "Output",
+        "content": "Clean email preview (white paper-like container inside dark frame).",
+        "style": "bg-surface"
+      }
+    },
+    "features": {
+      "layout": "Bento Grid (Grid-cols-3)",
+      "cards": [
+        { "title": "Voice to Code", "icon": "Mic", "span": "col-span-2", "desc": "Natural language processing converts speech to semantic HTML." },
+        { "title": "Brand Guard", "icon": "Shield", "span": "col-span-1", "desc": "Automatic color & font enforcement." },
+        { "title": "Instant Preview", "icon": "Eye", "span": "col-span-1", "desc": "Real-time rendering engine." },
+        { "title": "Agency Mode", "icon": "Users", "span": "col-span-2", "desc": "Manage multiple client voices." }
+      ],
+      "bg_image": "https://images.unsplash.com/photo-1771792997124-1eb0b9fc8ba1?crop=entropy&cs=srgb&fm=jpg&q=85 (Use as subtle texture in cards)"
+    },
+    "pricing": {
+      "highlight": "Pro Plan ($79/mo)",
+      "style": "Cards with standard borders. Pro card gets Golden/Green glowing border + 'Most Popular' badge.",
+      "badge_color": "text-secondary border-secondary bg-secondary/10"
+    }
+  },
+  "assets": {
+    "images": [
+      {
+        "category": "hero_bg",
+        "url": "https://images.unsplash.com/photo-1707346310176-52f43d7606ea?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "desc": "Abstract Green Waves"
+      },
+      {
+        "category": "feature_texture",
+        "url": "https://images.unsplash.com/photo-1771792997124-1eb0b9fc8ba1?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "desc": "Green Swirls"
+      },
+      {
+        "category": "about_bg",
+        "url": "https://images.unsplash.com/photo-1551380701-5dd33d5b5d06?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "desc": "Dark Desk Setup"
+      }
+    ],
+    "icons": "Use 'lucide-react' for all icons. Stroke width: 1.5px (Thin/Elegant)."
+  },
+  "universal_guidelines": [
+    "DO NOT use gradients for main backgrounds. Solid #0a0a0a only.",
+    "Use 'framer-motion' for all reveal animations.",
+    "Ensure 300% padding on all sections compared to standard Tailwind.",
+    "Buttons must be rounded-full (Pill shape).",
+    "Headings must use 'DM Serif Display'.",
+    "All interactive elements need data-testid.",
+    "Use sonner for toasts.",
+    "Create a 'Noise' component (fixed overlay with grain) to give the filmic texture."
+  ]
+}
