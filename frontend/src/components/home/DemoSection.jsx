@@ -18,42 +18,87 @@ const BRIEFS = [
   },
 ];
 
-const EmailPreview = () => (
-  <div style={{ fontFamily: "Arial, sans-serif", fontSize: "13px", color: "#333" }}>
-    <div style={{ background: "#1a3a2a", padding: "24px 32px", textAlign: "center" }}>
-      <p style={{ color: "#F5D000", fontSize: "9px", letterSpacing: "3px", textTransform: "uppercase", margin: "0 0 5px" }}>GreenLeaf Landscaping</p>
-      <h1 style={{ color: "#fff", fontSize: "20px", margin: 0, fontWeight: 700, fontFamily: "Georgia, serif" }}>Summer Special</h1>
-      <p style={{ color: "#a0c4a0", fontSize: "11px", margin: "4px 0 0" }}>Limited Time Offer</p>
-    </div>
-    <div style={{ padding: "28px 32px", background: "#fff" }}>
-      <p style={{ margin: "0 0 12px" }}>Hi Sarah,</p>
-      <h2 style={{ color: "#1a3a2a", fontSize: "16px", margin: "0 0 12px", fontWeight: 700, lineHeight: 1.3 }}>20% Off Lawn Care — This Week Only</h2>
-      <p style={{ color: "#555", lineHeight: 1.7, margin: "0 0 20px", fontSize: "14px" }}>
-        Summer is here and your lawn deserves the best care. Whether you need a full overhaul
-        or regular maintenance, our team is ready to make your yard the best on the block.
-      </p>
-      <div style={{ background: "#f0f7f0", borderLeft: "3px solid #4CAF50", padding: "12px 16px", margin: "0 0 20px", borderRadius: "0 8px 8px 0" }}>
-        <p style={{ color: "#2a5c2a", fontSize: "13px", margin: 0, fontWeight: 600 }}>✓ 20% off all lawn care services booked this week</p>
-        <p style={{ color: "#2a5c2a", fontSize: "13px", margin: "6px 0 0", fontWeight: 600 }}>✓ Free lawn assessment with every booking</p>
-        <p style={{ color: "#2a5c2a", fontSize: "13px", margin: "6px 0 0", fontWeight: 600 }}>✓ Same-week scheduling available</p>
+const EMAIL_DATA = [
+  {
+    companyName: "GreenLeaf Landscaping",
+    headerBg: "#1a3a2a",
+    accentColor: "#F5D000",
+    heroImg: "https://images.unsplash.com/photo-1592984164493-25c84259bf9a?crop=entropy&cs=srgb&fm=jpg&q=85&w=600",
+    title: "Summer Special",
+    subtitle: "Limited Time Offer",
+    greeting: "Hi Sarah,",
+    headline: "20% Off Lawn Care — This Week Only",
+    body: "Summer is here and your lawn deserves the best. Book any service this week and save 20% on your total.",
+    bullets: ["20% off all lawn care this week", "Free lawn assessment included", "Same-week scheduling"],
+    cta: "Book My Service — Save 20%",
+    expiry: "Offer expires Sunday, June 30",
+    footer: "GreenLeaf Landscaping · Austin, TX",
+  },
+  {
+    companyName: "BrightShield Pest Control",
+    headerBg: "#0e1f30",
+    accentColor: "#4CAF50",
+    heroImg: "https://images.pexels.com/photos/7546775/pexels-photo-7546775.jpeg?auto=compress&cs=tinysrgb&w=600",
+    title: "Mosquito Season Alert",
+    subtitle: "Protect Your Outdoor Space",
+    greeting: "Hi James,",
+    headline: "Summer mosquito season is here. Is your yard protected?",
+    body: "Mosquito activity peaks between June and August. Our seasonal protection plan keeps your family safe and your backyard enjoyable all summer.",
+    bullets: ["15% off summer inspection this month", "Treatment results within 48 hours", "100% satisfaction guaranteed"],
+    cta: "Schedule My Inspection →",
+    expiry: "Offer expires Friday, June 28",
+    footer: "BrightShield Pest Control · Serving your neighborhood",
+  },
+  {
+    companyName: "CleanSweep Home Services",
+    headerBg: "#1a1a2e",
+    accentColor: "#4CAF50",
+    heroImg: "https://images.pexels.com/photos/6996087/pexels-photo-6996087.jpeg?auto=compress&cs=tinysrgb&w=600",
+    title: "New Service Launch",
+    subtitle: "Introducing Deep Clean",
+    greeting: "Hi Rachel,",
+    headline: "Introducing our Premium Deep-Clean Package",
+    body: "We've listened to your feedback and built something special. Our Deep-Clean Package covers every inch of your home — top to bottom, inside out.",
+    bullets: ["$50 off your first deep-clean booking", "Move-in/move-out ready standard", "Eco-friendly certified products"],
+    cta: "Book My Deep Clean →",
+    expiry: "Limited spots — book this week",
+    footer: "CleanSweep Home Services · Trusted. Spotless. On time.",
+  },
+];
+
+const EmailPreview = ({ briefIndex = 1 }) => {
+  const d = EMAIL_DATA[briefIndex];
+  return (
+    <div style={{ fontFamily: "Arial, sans-serif", fontSize: "13px", color: "#333" }}>
+      <div style={{ background: d.headerBg, padding: "20px 28px", textAlign: "center" }}>
+        <p style={{ color: d.accentColor, fontSize: "9px", letterSpacing: "3px", textTransform: "uppercase", margin: "0 0 5px" }}>{d.companyName}</p>
+        <h1 style={{ color: "#fff", fontSize: "18px", margin: 0, fontWeight: 700, fontFamily: "Georgia, serif" }}>{d.title}</h1>
+        <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "11px", margin: "4px 0 0" }}>{d.subtitle}</p>
       </div>
-      <div style={{ textAlign: "center", margin: "28px 0 12px" }}>
-        <a href="#" style={{ background: "#4CAF50", color: "#fff", padding: "14px 32px", borderRadius: "50px", textDecoration: "none", fontSize: "15px", fontWeight: 700, display: "inline-block" }}>
-          Book My Service — Save 20%
-        </a>
-        <p style={{ color: "#888", fontSize: "11px", margin: "10px 0 0" }}>Offer expires Sunday, June 30</p>
+      <img src={d.heroImg} alt="" style={{ width: "100%", height: "120px", objectFit: "cover", display: "block" }} />
+      <div style={{ padding: "18px 28px", background: "#fff" }}>
+        <p style={{ margin: "0 0 8px" }}>{d.greeting}</p>
+        <h2 style={{ color: d.headerBg, fontSize: "14px", margin: "0 0 8px", fontWeight: 700, lineHeight: 1.3 }}>{d.headline}</h2>
+        <p style={{ color: "#555", lineHeight: 1.6, margin: "0 0 12px", fontSize: "12px" }}>{d.body}</p>
+        <div style={{ background: "#f0f7f0", borderLeft: "3px solid #4CAF50", padding: "10px 14px", margin: "0 0 14px", borderRadius: "0 6px 6px 0" }}>
+          {d.bullets.map((b, i) => (
+            <p key={i} style={{ color: "#2a5c2a", fontSize: "11px", margin: i > 0 ? "5px 0 0" : 0, fontWeight: 600 }}>✓ {b}</p>
+          ))}
+        </div>
+        <div style={{ textAlign: "center", margin: "14px 0 8px" }}>
+          <a href="#" style={{ background: "#4CAF50", color: "#fff", padding: "10px 22px", borderRadius: "50px", textDecoration: "none", fontSize: "12px", fontWeight: 700, display: "inline-block" }}>{d.cta}</a>
+          <p style={{ color: "#888", fontSize: "10px", margin: "7px 0 0" }}>{d.expiry}</p>
+        </div>
+      </div>
+      <div style={{ background: "#f8f8f8", padding: "10px 28px", borderTop: "1px solid #eee", textAlign: "center" }}>
+        <p style={{ color: "#999", fontSize: "10px", margin: 0 }}>{d.footer} · <span style={{ color: "#4CAF50" }}>Unsubscribe</span></p>
       </div>
     </div>
-    <div style={{ background: "#f8f8f8", padding: "16px 32px", borderTop: "1px solid #eee", textAlign: "center" }}>
-      <p style={{ color: "#999", fontSize: "11px", margin: 0 }}>
-        GreenLeaf Landscaping · 1234 Garden Way, Austin, TX · <span style={{ color: "#4CAF50" }}>Unsubscribe</span>
-      </p>
-    </div>
-  </div>
-);
+  );
+};
 
 export default function DemoSection() {
-  const [activeBrief, setActiveBrief] = useState(0);
+  const [activeBrief, setActiveBrief] = useState(1);
   const [phase, setPhase] = useState("idle");
 
   const handleGenerate = () => {
@@ -167,7 +212,7 @@ export default function DemoSection() {
                     )}
                     {phase === "done" && (
                       <motion.div key="done" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }} className="w-full overflow-auto max-h-[420px]">
-                        <EmailPreview />
+                        <EmailPreview briefIndex={activeBrief} />
                       </motion.div>
                     )}
                   </AnimatePresence>
