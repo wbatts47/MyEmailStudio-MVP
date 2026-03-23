@@ -1,0 +1,246 @@
+import { Check, ArrowRight, HelpCircle } from "lucide-react";
+import { useState } from "react";
+import FadeUp from "../components/FadeUp";
+import { motion, AnimatePresence } from "framer-motion";
+
+const PLANS = [
+  {
+    name: "Starter",
+    price: 29,
+    tagline: "For small businesses just getting started with email marketing.",
+    features: [
+      "10 emails per month",
+      "1 user seat",
+      "Brand Kit (colors, fonts, company info)",
+      "Email History (30 days)",
+      "HTML & plain-text export",
+      "Live email preview",
+      "Standard email support",
+    ],
+    notIncluded: ["ESP integrations", "Revision chat", "Multi-user access"],
+    cta: "Start Free Trial",
+    popular: false,
+  },
+  {
+    name: "Pro",
+    price: 79,
+    tagline: "For growing teams who send email consistently and need integrations.",
+    features: [
+      "50 emails per month",
+      "3 user seats",
+      "Brand Kit + custom fonts",
+      "Unlimited email history",
+      "ESP integrations (Gmail, Mailchimp, SendGrid, Klaviyo)",
+      "Revision chat — plain-language edits",
+      "Live preview across email clients",
+      "Priority email + chat support",
+    ],
+    notIncluded: ["Multi-brand management", "White-label export"],
+    cta: "Start Free Trial",
+    popular: true,
+  },
+  {
+    name: "Agency",
+    price: 199,
+    tagline: "For agencies and franchise operators managing multiple brands.",
+    features: [
+      "Unlimited emails",
+      "10 user seats",
+      "Multi-brand management",
+      "All Pro features",
+      "White-label export",
+      "Custom brand templates",
+      "Dedicated account manager",
+      "SLA-backed priority support",
+      "Quarterly strategy call",
+    ],
+    notIncluded: [],
+    cta: "Start Free Trial",
+    popular: false,
+  },
+];
+
+const FAQS = [
+  { q: "What counts as one email?", a: "Each generation request counts as one email. Revisions within the same session using Revision Chat don't count." },
+  { q: "Can I cancel anytime?", a: "Yes. Cancel from your account settings at any time. No questions, no penalties." },
+  { q: "What happens if I go over my monthly limit?", a: "You'll get a notification at 80% usage. You can upgrade mid-cycle or purchase add-on email packs." },
+  { q: "Do I need a credit card to start?", a: "No. Your first 5 emails are completely free. Only add a card when you're ready to subscribe." },
+  { q: "Can I switch plans?", a: "Yes, upgrade or downgrade anytime. Changes take effect at the next billing cycle." },
+];
+
+export default function PricingPage() {
+  const [openFaq, setOpenFaq] = useState(null);
+  const [billing, setBilling] = useState("monthly");
+
+  return (
+    <div style={{ background: "#0a0a0a" }} className="pt-24">
+      {/* Hero */}
+      <section className="py-20 px-6 lg:px-10 text-center">
+        <FadeUp>
+          <p className="section-label mb-4">Pricing</p>
+          <h1
+            style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
+            className="text-5xl md:text-6xl text-[#f0f0f0] leading-tight mb-5"
+          >
+            Simple, transparent pricing.
+          </h1>
+          <p className="text-[#888] text-xl max-w-lg mx-auto mb-8">
+            No surprise charges. No confusing tiers. Pay for the output, not the platform.
+          </p>
+          {/* Billing toggle */}
+          <div className="inline-flex items-center gap-1 bg-[#141414] border border-[#2a2a2a] rounded-full p-1 mb-2">
+            <button
+              data-testid="billing-monthly"
+              onClick={() => setBilling("monthly")}
+              className={`text-sm px-5 py-2 rounded-full transition-all duration-200 ${
+                billing === "monthly" ? "bg-[#4CAF50] text-[#0a0a0a] font-semibold" : "text-[#555] hover:text-[#888]"
+              }`}
+            >
+              Monthly
+            </button>
+            <button
+              data-testid="billing-annual"
+              onClick={() => setBilling("annual")}
+              className={`text-sm px-5 py-2 rounded-full transition-all duration-200 ${
+                billing === "annual" ? "bg-[#4CAF50] text-[#0a0a0a] font-semibold" : "text-[#555] hover:text-[#888]"
+              }`}
+            >
+              Annual <span className="text-[#F5D000] text-xs ml-1">Save 20%</span>
+            </button>
+          </div>
+        </FadeUp>
+      </section>
+
+      {/* Plans */}
+      <section className="pb-20 px-6 lg:px-10">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5">
+          {PLANS.map((plan, i) => {
+            const displayPrice = billing === "annual" ? Math.round(plan.price * 0.8) : plan.price;
+            return (
+              <FadeUp key={plan.name} delay={i * 0.1}>
+                <motion.div
+                  data-testid={`plan-${plan.name.toLowerCase()}`}
+                  whileHover={{ y: -5 }}
+                  transition={{ duration: 0.25 }}
+                  className={`relative rounded-2xl border p-8 h-full flex flex-col ${
+                    plan.popular
+                      ? "bg-[#0f1f10] border-[#4CAF50]/50"
+                      : "bg-[#141414] border-[#2a2a2a]"
+                  }`}
+                  style={plan.popular ? { boxShadow: "0 0 60px rgba(76,175,80,0.12)" } : {}}
+                >
+                  {plan.popular && (
+                    <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                      <span className="text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full"
+                        style={{ background: "rgba(245,208,0,0.12)", border: "1px solid rgba(245,208,0,0.4)", color: "#F5D000" }}>
+                        Most Popular
+                      </span>
+                    </div>
+                  )}
+
+                  <div className="mb-7">
+                    <h3 style={{ fontFamily: "'DM Serif Display', Georgia, serif" }} className="text-[#f0f0f0] text-2xl mb-1.5">{plan.name}</h3>
+                    <p className="text-[#555] text-sm mb-5">{plan.tagline}</p>
+                    <div className="flex items-end gap-1.5">
+                      <span style={{ fontFamily: "'DM Serif Display', Georgia, serif" }} className="text-5xl text-[#f0f0f0]">
+                        ${displayPrice}
+                      </span>
+                      <span className="text-[#555] text-sm mb-2">/mo{billing === "annual" && <span className="text-[#F5D000] ml-1">billed annually</span>}</span>
+                    </div>
+                  </div>
+
+                  <ul className="space-y-3 mb-6 flex-1">
+                    {plan.features.map((f) => (
+                      <li key={f} className="flex items-start gap-2.5">
+                        <Check size={14} color="#4CAF50" className="mt-0.5 flex-shrink-0" strokeWidth={2.5} />
+                        <span className="text-[#888] text-sm">{f}</span>
+                      </li>
+                    ))}
+                    {plan.notIncluded.map((f) => (
+                      <li key={f} className="flex items-start gap-2.5 opacity-40">
+                        <svg width="14" height="14" viewBox="0 0 14 14" className="mt-0.5 flex-shrink-0">
+                          <path d="M3 11L11 3M3 3l8 8" stroke="#888" strokeWidth="1.5" strokeLinecap="round"/>
+                        </svg>
+                        <span className="text-[#555] text-sm line-through">{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <a
+                    href="#"
+                    data-testid={`cta-${plan.name.toLowerCase()}`}
+                    className={`flex items-center justify-center gap-2 py-3.5 rounded-xl text-sm font-semibold transition-all ${
+                      plan.popular ? "btn-primary" : "btn-secondary"
+                    }`}
+                    style={{ borderRadius: "12px", ...(plan.popular ? { boxShadow: "0 0 22px rgba(76,175,80,0.3)" } : {}) }}
+                  >
+                    {plan.cta} <ArrowRight size={14} />
+                  </a>
+                </motion.div>
+              </FadeUp>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-20 px-6 lg:px-10 border-t border-[#2a2a2a]">
+        <div className="max-w-2xl mx-auto">
+          <FadeUp className="text-center mb-12">
+            <p className="section-label mb-4">FAQ</p>
+            <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif" }} className="text-4xl text-[#f0f0f0]">
+              Common questions
+            </h2>
+          </FadeUp>
+          <div className="space-y-2">
+            {FAQS.map((faq, i) => (
+              <FadeUp key={faq.q} delay={i * 0.07}>
+                <div className="border border-[#2a2a2a] rounded-xl overflow-hidden bg-[#141414]" data-testid={`faq-item-${i}`}>
+                  <button
+                    className="w-full text-left px-6 py-5 flex items-center justify-between gap-4"
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  >
+                    <span className="text-[#f0f0f0] text-sm font-medium">{faq.q}</span>
+                    <span className={`text-[#555] transition-transform duration-200 flex-shrink-0 ${openFaq === i ? "rotate-45" : ""}`}>
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M8 3v10M3 8h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                      </svg>
+                    </span>
+                  </button>
+                  <AnimatePresence>
+                    {openFaq === i && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.25 }}
+                        className="overflow-hidden"
+                      >
+                        <p className="px-6 pb-5 text-[#888] text-sm leading-relaxed border-t border-[#2a2a2a]" style={{ paddingTop: "16px" }}>
+                          {faq.a}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </FadeUp>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-20 px-6 lg:px-10 border-t border-[#2a2a2a] text-center">
+        <FadeUp>
+          <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif" }} className="text-4xl md:text-5xl text-[#f0f0f0] mb-5">
+            Start free. Upgrade when ready.
+          </h2>
+          <p className="text-[#888] mb-8">Your first 5 emails are completely free. No credit card required.</p>
+          <a href="#" data-testid="pricing-final-cta" className="btn-primary">
+            Start Free Trial <ArrowRight size={16} />
+          </a>
+        </FadeUp>
+      </section>
+    </div>
+  );
+}
