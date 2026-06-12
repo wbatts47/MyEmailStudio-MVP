@@ -9,16 +9,17 @@ const PLANS = [
     price: 29,
     tagline: "For small businesses just getting started with email marketing.",
     features: [
-      "10 emails per month",
+      "15 emails per month",
       "1 user seat",
       "Brand Kit (colors, fonts, company info)",
-      "Email History (30 days)",
+      "Email History",
       "HTML & plain-text export",
       "Live email preview",
+      "Revision chat",
       "Standard email support",
     ],
-    notIncluded: ["ESP integrations", "Revision chat", "Multi-user access"],
-    cta: "Start Free Trial",
+    notIncluded: ["ESP integrations", "Multi-user access"],
+    cta: "Schedule a Call",
     popular: false,
   },
   {
@@ -26,17 +27,16 @@ const PLANS = [
     price: 79,
     tagline: "For growing teams who send email consistently and need integrations.",
     features: [
-      "50 emails per month",
+      "60 emails per month",
       "3 user seats",
       "Brand Kit + custom fonts",
       "Unlimited email history",
       "ESP integrations (Gmail, Mailchimp, SendGrid, Klaviyo)",
       "Revision chat — plain-language edits",
-      "Live preview across email clients",
       "Priority email + chat support",
     ],
     notIncluded: ["Multi-brand management", "White-label export"],
-    cta: "Start Free Trial",
+    cta: "Schedule a Call",
     popular: true,
   },
   {
@@ -44,18 +44,13 @@ const PLANS = [
     price: 199,
     tagline: "For agencies and franchise operators managing multiple brands.",
     features: [
-      "Unlimited emails",
+      "200 emails per month",
       "10 user seats",
       "Multi-brand management",
       "All Pro features",
-      "White-label export",
-      "Custom brand templates",
-      "Dedicated account manager",
-      "SLA-backed priority support",
-      "Quarterly strategy call",
     ],
     notIncluded: [],
-    cta: "Start Free Trial",
+    cta: "Schedule a Call",
     popular: false,
   },
 ];
@@ -70,7 +65,6 @@ const FAQS = [
 
 export default function PricingPage() {
   const [openFaq, setOpenFaq] = useState(null);
-  const [billing, setBilling] = useState("monthly");
 
   return (
     <div style={{ background: "#0a0a0a" }} className="pt-24">
@@ -87,27 +81,6 @@ export default function PricingPage() {
           <p className="text-[#888] text-xl max-w-lg mx-auto mb-8">
             No surprise charges. No confusing tiers. Pay for the output, not the platform.
           </p>
-          {/* Billing toggle */}
-          <div className="inline-flex items-center gap-1 bg-[#141414] border border-[#2a2a2a] rounded-full p-1 mb-2">
-            <button
-              data-testid="billing-monthly"
-              onClick={() => setBilling("monthly")}
-              className={`text-sm px-5 py-2 rounded-full transition-all duration-200 ${
-                billing === "monthly" ? "bg-[#4CAF50] text-[#0a0a0a] font-semibold" : "text-[#555] hover:text-[#888]"
-              }`}
-            >
-              Monthly
-            </button>
-            <button
-              data-testid="billing-annual"
-              onClick={() => setBilling("annual")}
-              className={`text-sm px-5 py-2 rounded-full transition-all duration-200 ${
-                billing === "annual" ? "bg-[#4CAF50] text-[#0a0a0a] font-semibold" : "text-[#555] hover:text-[#888]"
-              }`}
-            >
-              Annual <span className="text-[#F5D000] text-xs ml-1">Save 20%</span>
-            </button>
-          </div>
         </FadeUp>
       </section>
 
@@ -115,7 +88,7 @@ export default function PricingPage() {
       <section className="pb-20 px-6 lg:px-10">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5">
           {PLANS.map((plan, i) => {
-            const displayPrice = billing === "annual" ? Math.round(plan.price * 0.8) : plan.price;
+            const displayPrice = plan.price;
             return (
               <FadeUp key={plan.name} delay={i * 0.1}>
                 <motion.div
@@ -145,7 +118,7 @@ export default function PricingPage() {
                       <span style={{ fontFamily: "'DM Serif Display', Georgia, serif" }} className="text-5xl text-[#f0f0f0]">
                         ${displayPrice}
                       </span>
-                      <span className="text-[#555] text-sm mb-2">/mo{billing === "annual" && <span className="text-[#F5D000] ml-1">billed annually</span>}</span>
+                      <span className="text-[#555] text-sm mb-2">/mo</span>
                     </div>
                   </div>
 
@@ -167,7 +140,7 @@ export default function PricingPage() {
                   </ul>
 
                   <a
-                    href="#"
+                    href="https://calendly.com"
                     data-testid={`cta-${plan.name.toLowerCase()}`}
                     className={`flex items-center justify-center gap-2 py-3.5 rounded-xl text-sm font-semibold transition-all ${
                       plan.popular ? "btn-primary" : "btn-secondary"
