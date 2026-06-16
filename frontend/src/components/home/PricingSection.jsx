@@ -1,4 +1,4 @@
-import { Check, ArrowRight } from "lucide-react";
+import { Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import FadeUp from "../FadeUp";
 import { motion } from "framer-motion";
@@ -18,8 +18,8 @@ const PLANS = [
       "HTML export",
       "Email support",
     ],
-    cta: "Start Sending",
-    ctaHref: "#",
+    cta: "Get Started →",
+    ctaHref: "https://buy.stripe.com/test_eVq14f68Uekf8n38NYcbC00",
     popular: false,
   },
   {
@@ -35,8 +35,8 @@ const PLANS = [
       "Revision chat",
       "Priority email support",
     ],
-    cta: "Start Sending",
-    ctaHref: "#",
+    cta: "Get Started →",
+    ctaHref: "https://buy.stripe.com/test_4gM6oz54Qgsn32J1lwcbC01",
     popular: true,
   },
   {
@@ -50,8 +50,8 @@ const PLANS = [
       "Multi-brand management",
       "All Pro features",
     ],
-    cta: "Let's Talk",
-    ctaHref: "#",
+    cta: "Book a Call →",
+    ctaHref: "https://cal.com/myemailstudio",
     popular: false,
   },
 ];
@@ -155,7 +155,6 @@ export default function PricingSection() {
                   }}
                 >
                   {plan.cta}
-                  <ArrowRight size={14} />
                 </a>
               </motion.div>
             </FadeUp>
