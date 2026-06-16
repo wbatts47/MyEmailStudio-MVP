@@ -70,6 +70,14 @@ export default function Navbar() {
             See Demo
           </Link>
           <a
+            href="https://app.myemailstudio.com"
+            data-testid="nav-login-btn"
+            className="text-sm font-medium text-[#888] hover:text-[#f0f0f0] border border-[#2a2a2a] hover:border-[#3a3a3a] rounded-xl transition-colors no-underline"
+            style={{ padding: "10px 22px" }}
+          >
+            Log In
+          </a>
+          <a
             href="https://buy.stripe.com/test_eVq14f68Uekf8n38NYcbC00"
             data-testid="nav-cta-btn"
             className="btn-primary text-sm"
@@ -111,8 +119,15 @@ export default function Navbar() {
               </Link>
             ))}
             <a
+              href="https://app.myemailstudio.com"
+              className="mt-4 w-full flex items-center justify-center text-sm font-medium text-[#888] hover:text-[#f0f0f0] border border-[#2a2a2a] hover:border-[#3a3a3a] rounded-xl transition-colors no-underline"
+              style={{ padding: "12px 22px" }}
+            >
+              Log In
+            </a>
+            <a
               href="https://buy.stripe.com/test_eVq14f68Uekf8n38NYcbC00"
-              className="btn-primary mt-4 w-full justify-center text-sm"
+              className="btn-primary mt-3 w-full justify-center text-sm"
               style={{ padding: "12px 22px" }}
             >
               Get Started for $29/month
