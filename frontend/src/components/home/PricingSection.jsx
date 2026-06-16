@@ -18,7 +18,7 @@ const PLANS = [
       "HTML export",
       "Email support",
     ],
-    cta: "Start Free Trial",
+    cta: "Start Sending",
     ctaHref: "#",
     popular: false,
   },
@@ -32,11 +32,10 @@ const PLANS = [
       "3 user seats",
       "Brand Kit + multi-font",
       "Unlimited email history",
-      "ESP integrations (Gmail, Mailchimp, SendGrid)",
       "Revision chat",
       "Priority email support",
     ],
-    cta: "Start Free Trial",
+    cta: "Start Sending",
     ctaHref: "#",
     popular: true,
   },
@@ -51,7 +50,7 @@ const PLANS = [
       "Multi-brand management",
       "All Pro features",
     ],
-    cta: "Start Free Trial",
+    cta: "Let's Talk",
     ctaHref: "#",
     popular: false,
   },
@@ -79,7 +78,7 @@ export default function PricingSection() {
             Pay for the output.<br />Save on everything else.
           </h2>
           <p className="text-[#888] text-lg max-w-xl mx-auto">
-            No contracts. Cancel anytime. Your first 5 emails are free.
+            No contracts. Cancel anytime.
           </p>
         </FadeUp>
 

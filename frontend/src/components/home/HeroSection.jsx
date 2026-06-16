@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mic, MicOff, ArrowRight, Play, Zap } from "lucide-react";
+import { Mic, ArrowRight, Zap } from "lucide-react";
 
 const BRIEF_TEXT = "Write a summer promo email for GreenLeaf Landscaping — 20% off lawn care this week. Warm tone, urgent CTA.";
 const WAVE_HEIGHTS = [35, 70, 25, 90, 50, 80, 30, 100, 55, 75, 40, 85, 45, 65, 35, 95, 50, 72, 28, 60];
@@ -216,8 +216,8 @@ export default function HeroSection() {
             style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
             className="text-5xl md:text-6xl lg:text-7xl text-[#f0f0f0] leading-[0.95] tracking-tight mb-6"
           >
-            Your next email<br />
-            <span className="text-green-gradient">in 30 seconds.</span>
+            Your next email,<br />
+            <span className="text-green-gradient">done in under a minute.</span>
           </motion.h1>
 
           <motion.p
@@ -226,8 +226,9 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-[#888] text-lg md:text-xl leading-relaxed mb-8 max-w-lg"
           >
-            Speak a brief or type a few sentences. Email Studio turns it into
-            production-ready, cross-client HTML — beautiful every time.
+            Describe what you want in plain English. Email Studio generates
+            production-ready HTML — brand colors, your logo, Outlook-compatible —
+            no templates, no designer, no drag-and-drop.
           </motion.p>
 
           <motion.div
@@ -237,12 +238,11 @@ export default function HeroSection() {
             className="flex flex-wrap gap-3 mb-10"
           >
             <a href="#" data-testid="hero-cta-primary" className="btn-primary">
-              Start Free Trial
+              Get Started for $29/month
               <ArrowRight size={16} />
             </a>
-            <a href="/demo" data-testid="hero-cta-secondary" className="btn-secondary">
-              <Play size={14} />
-              See It In Action
+            <a href="#solution" data-testid="hero-cta-secondary" className="btn-secondary">
+              See how it works ↓
             </a>
           </motion.div>
 
@@ -252,7 +252,7 @@ export default function HeroSection() {
             transition={{ delay: 0.5 }}
             className="flex items-center gap-5 text-sm text-[#555]"
           >
-            {["No templates", "No designer", "Works in Outlook"].map((t) => (
+            {["Describe it, don't design it", "No drag-and-drop", "Works in Outlook", "Your brand, every time"].map((t) => (
               <span key={t} className="flex items-center gap-1.5">
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                   <path d="M2 6l3 3 5-5" stroke="#4CAF50" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -287,7 +287,7 @@ export default function HeroSection() {
             className="absolute -bottom-4 -left-6 bg-[#141414] border border-[#2a2a2a] rounded-xl px-4 py-2.5 shadow-xl"
           >
             <p className="text-[10px] text-[#555] mb-0.5">Generated in</p>
-            <p className="text-[#4CAF50] font-bold text-sm">1.8 seconds</p>
+            <p className="text-[#4CAF50] font-bold text-sm">under a minute</p>
           </motion.div>
           <motion.div
             animate={{ y: [0, 5, 0] }}

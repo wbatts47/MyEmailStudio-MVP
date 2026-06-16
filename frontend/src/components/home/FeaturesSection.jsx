@@ -1,14 +1,13 @@
 import { Mic, Zap, Eye, MessageSquare, Palette, History, Send } from "lucide-react";
 import FadeUp from "../FadeUp";
-import { motion } from "framer-motion";
 
 const FEATURES = [
   {
     id: "voice",
     icon: Mic,
-    label: "Voice & Text Input",
-    title: "Brief it out loud",
-    desc: "Tap record and speak naturally. Email Studio transcribes, interprets context, and extracts your intent — no special phrasing required.",
+    label: "7 Email Styles",
+    title: "Newsletter, promo, seasonal, and more",
+    desc: "Newsletter, hero promo, announcement, follow-up, seasonal campaign, event invite, re-engagement. Pick the format, describe the content.",
     accent: "#4CAF50",
     span: "md:col-span-2",
     highlight: true,
@@ -24,9 +23,9 @@ const FEATURES = [
   {
     id: "brand",
     icon: Palette,
-    label: "Brand Kit",
+    label: "Brand Kit Built In",
     title: "Every email on-brand",
-    desc: "Store your colors, fonts, and company info once. Every generated email automatically matches your brand guidelines.",
+    desc: "Upload your logo, set your colors and fonts once. Every email you generate reflects your brand automatically.",
     accent: "#F5D000",
     span: "md:col-span-1",
     visual: (
@@ -41,8 +40,8 @@ const FEATURES = [
     id: "preview",
     icon: Eye,
     label: "Live Preview",
-    title: "See exactly what they'll see",
-    desc: "Real-time rendering shows your email in every client — Gmail, Outlook, Apple Mail — before you send.",
+    title: "See exactly what your email looks like",
+    desc: "Real-time rendering shows exactly how your email will look before you download it.",
     accent: "#4CAF50",
     span: "md:col-span-1",
     visual: null,
@@ -50,9 +49,9 @@ const FEATURES = [
   {
     id: "ai",
     icon: Zap,
-    label: "AI Email Generation",
+    label: "Outlook-Compatible HTML",
     title: "Brief to HTML in seconds",
-    desc: "From description to production-ready, MJML-compiled HTML email. Works perfectly in every inbox including Outlook 2007.",
+    desc: "MJML compilation means your emails render correctly everywhere — including Outlook, which breaks most hand-coded emails.",
     accent: "#4CAF50",
     span: "md:col-span-2",
     visual: (
@@ -66,8 +65,8 @@ const FEATURES = [
     id: "chat",
     icon: MessageSquare,
     label: "Revision Chat",
-    title: "Iterate in plain English",
-    desc: "Don't like the CTA? Say \"make it more urgent\" and it's done. No re-prompting, no starting over.",
+    title: "Revise in plain English",
+    desc: "Don't like the subject line? Want a different CTA? Just tell it. No re-prompting from scratch.",
     accent: "#4CAF50",
     span: "md:col-span-1",
     visual: null,
@@ -77,7 +76,7 @@ const FEATURES = [
     icon: History,
     label: "Email History",
     title: "Your full library",
-    desc: "Every email you've generated is saved. Reload, revise, re-send, or use as a starting point for your next campaign.",
+    desc: "Every email you generate is saved. Go back, revise, reuse, or rebuild from any previous send.",
     accent: "#4CAF50",
     span: "md:col-span-1",
     visual: null,
@@ -85,14 +84,14 @@ const FEATURES = [
   {
     id: "esp",
     icon: Send,
-    label: "ESP Integrations",
-    title: "Send from anywhere",
-    desc: "Connect Gmail, Mailchimp, SendGrid, Klaviyo, or Outlook and send directly from Email Studio without touching another tool.",
+    label: "Works With Your ESP",
+    title: "Download and paste anywhere",
+    desc: "Download clean HTML and paste it into whatever platform you already send from — Mailchimp, Constant Contact, Klaviyo, FranConnect, anything.",
     accent: "#F5D000",
     span: "md:col-span-1",
     visual: (
       <div className="flex flex-wrap gap-2 mt-4">
-        {["Gmail","Mailchimp","SendGrid","Klaviyo"].map((s) => (
+        {["Mailchimp","Constant Contact","Klaviyo","FranConnect"].map((s) => (
           <span key={s} className="text-[10px] border border-[#2a2a2a] rounded-full px-2.5 py-0.5 text-[#555]">{s}</span>
         ))}
       </div>

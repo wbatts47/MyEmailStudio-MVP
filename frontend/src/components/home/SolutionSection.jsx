@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import FadeUp from "../FadeUp";
 import { Mic, Zap, Send } from "lucide-react";
 
@@ -6,29 +5,29 @@ const STEPS = [
   {
     number: "01",
     icon: Mic,
-    title: "Describe it",
-    subtitle: "Voice or text, your call",
-    desc: "Tap the mic and speak your brief out loud, or type a few sentences. Tell it the goal, the tone, the offer. That's all it needs.",
+    title: "Brief it",
+    subtitle: "Type what you need",
+    desc: 'Type what you need. "Monthly newsletter for our pest control customers — promote our mosquito program, include a spring discount." That\'s it.',
     accent: "#4CAF50",
     example: '"Write a follow-up email for pest control customers due for their summer inspection. Offer a 15% discount and make it feel personal."',
   },
   {
     number: "02",
     icon: Zap,
-    title: "AI generates it",
+    title: "Get your email",
     subtitle: "Production HTML in seconds",
-    desc: "The AI turns your brief into a fully structured, cross-client HTML email — correct in Gmail, Outlook, Apple Mail, and every mobile client.",
+    desc: "Email Studio generates a fully coded, MJML-compiled HTML email in seconds — styled to your brand, ready for any inbox.",
     accent: "#4CAF50",
-    example: "Output: Fully structured MJML-compiled HTML, inline CSS, responsive layout, and on-brand colors — delivered in under 3 seconds.",
+    example: "Output: Fully coded, MJML-compiled HTML — brand colors applied, logo included, Outlook-compatible.",
   },
   {
     number: "03",
     icon: Send,
-    title: "Send it",
-    subtitle: "Direct from the tool",
-    desc: "Preview exactly how it looks. Make plain-language revisions if needed. Connect your ESP and send — or download the HTML and drop it anywhere.",
+    title: "Download and send",
+    subtitle: "No lock-in",
+    desc: "Copy the HTML or download the file. Paste it into Mailchimp, Constant Contact, FranConnect, or any platform you already use. No lock-in, no switching tools.",
     accent: "#F5D000",
-    example: "Connects to Gmail, Mailchimp, SendGrid, Outlook, and Klaviyo. One-click send or export.",
+    example: "Works with Mailchimp, Constant Contact, FranConnect, Klaviyo, or anything else you already send from.",
   },
 ];
 
@@ -48,7 +47,7 @@ export default function SolutionSection() {
             Describe it. Generate it. Send it.
           </h2>
           <p className="text-[#888] text-lg max-w-xl mx-auto">
-            Three steps from idea to inbox. No templates, no guesswork.
+            Three steps from brief to inbox.
           </p>
         </FadeUp>
 
@@ -96,7 +95,7 @@ export default function SolutionSection() {
                     style={{ borderColor: `${step.accent}20` }}
                   >
                     <p className="text-[11px] text-[#555] mb-2 uppercase tracking-widest">
-                      {i === 0 ? "Example brief" : i === 1 ? "What you get" : "Integrations"}
+                      {i === 0 ? "Example brief" : i === 1 ? "What you get" : "Where it goes"}
                     </p>
                     <p className="text-[#888] text-sm leading-relaxed italic">
                       {step.example}

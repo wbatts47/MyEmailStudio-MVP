@@ -24,12 +24,11 @@ export default function CTASection() {
             style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
             className="text-5xl md:text-6xl lg:text-7xl text-[#f0f0f0] leading-[0.95] tracking-tight mb-7"
           >
-            Your next email in<br />
-            <span style={{ color: "#F5D000" }}>30 seconds.</span>
+            Stop staring at a blank<br />
+            <span style={{ color: "#F5D000" }}>Mailchimp window.</span>
           </h2>
           <p className="text-[#888] text-xl leading-relaxed mb-10 max-w-xl mx-auto">
-            No templates. No designer. No Outlook surprises.
-            Just describe it and watch it happen.
+            Describe your email. Download the HTML. Done.
           </p>
         </FadeUp>
 
@@ -40,29 +39,26 @@ export default function CTASection() {
             className="btn-primary text-base"
             style={{ padding: "16px 40px", fontSize: "16px" }}
           >
-            Start Free Trial
+            Get Started for $29/month
             <ArrowRight size={18} />
           </a>
           <a
-            href="/demo"
+            href="#"
             data-testid="final-cta-demo"
             className="btn-secondary text-base"
             style={{ padding: "15px 40px", fontSize: "16px" }}
           >
-            See It In Action
+            See how it works ↓
           </a>
         </FadeUp>
 
         <FadeUp delay={0.25}>
-          <p className="text-[#555] text-sm">
-            Free for your first 5 emails. No credit card required.
-          </p>
           <div className="flex flex-wrap items-center justify-center gap-6 mt-6">
             {[
+              "Describe it, don't design it",
+              "No drag-and-drop",
               "Works in Outlook",
-              "Gmail-compatible",
-              "Cancel anytime",
-              "Exports to HTML",
+              "Your brand, every time",
             ].map((t) => (
               <span key={t} className="flex items-center gap-1.5 text-xs text-[#555]">
                 <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
