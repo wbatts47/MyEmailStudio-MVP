@@ -93,20 +93,20 @@ const STEPS = [
   {
     number: "04",
     icon: Send,
-    title: "Send it directly",
-    subtitle: "Or export and drop it anywhere",
+    title: "Download and send",
+    subtitle: "Works with any ESP you already use",
     accent: "#F5D000",
     content: [
-      "Connect your ESP once and send campaigns directly from Email Studio.",
-      "Supported: Gmail, Mailchimp, SendGrid, Klaviyo, Outlook, and more.",
-      "Or export the HTML and drop it into any platform that accepts custom HTML emails.",
-      "Every export is validated and includes inline CSS — no additional processing needed.",
+      "Click Download to get a clean .html file — or copy the HTML directly to your clipboard.",
+      "Paste it into Mailchimp, Constant Contact, FranConnect, Klaviyo, or any platform that accepts custom HTML.",
+      "No lock-in. No switching tools. Email Studio creates; you send from whatever platform you already use.",
+      "Every export includes inline CSS and Outlook conditional comments — no additional processing needed.",
     ],
     visual: (
       <div className="bg-[#1a1a1a] rounded-xl border border-[#2a2a2a] p-5">
-        <p className="section-label text-[10px] mb-3" style={{ color: "#F5D000" }}>Connected integrations</p>
+        <p className="section-label text-[10px] mb-3" style={{ color: "#F5D000" }}>Paste into any platform</p>
         <div className="grid grid-cols-2 gap-2">
-          {["Gmail", "Mailchimp", "SendGrid", "Klaviyo", "Outlook", "Export HTML"].map((s) => (
+          {["Mailchimp", "Constant Contact", "FranConnect", "Klaviyo", "ActiveCampaign", "Export HTML"].map((s) => (
             <div key={s} className="flex items-center gap-2 text-xs text-[#888] bg-[#141414] rounded-lg px-3 py-2 border border-[#2a2a2a]">
               <CheckCircle size={11} color="#4CAF50" />
               {s}
@@ -130,8 +130,8 @@ export default function HowItWorksPage() {
           <p className="text-[#888] text-xl max-w-lg mx-auto mb-10">
             No templates. No design skills. No surprises in Outlook.
           </p>
-          <a href="#" data-testid="hiw-cta" className="btn-primary inline-flex">
-            Try It Free <ArrowRight size={16} />
+          <a href="https://buy.stripe.com/test_eVq14f68Uekf8n38NYcbC00" data-testid="hiw-cta" className="btn-primary inline-flex">
+            Get Started for $29/month <ArrowRight size={16} />
           </a>
         </FadeUp>
       </section>
@@ -181,9 +181,9 @@ export default function HowItWorksPage() {
           <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif" }} className="text-4xl md:text-5xl text-[#f0f0f0] mb-5">
             Ready to try it?
           </h2>
-          <p className="text-[#888] mb-8">First 5 emails are completely free. No credit card needed.</p>
+          <p className="text-[#888] mb-8">No contracts. Cancel anytime.</p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <a href="#" className="btn-primary">Start Free Trial <ArrowRight size={16} /></a>
+            <a href="https://buy.stripe.com/test_eVq14f68Uekf8n38NYcbC00" className="btn-primary">Get Started for $29/month <ArrowRight size={16} /></a>
             <a href="/demo" className="btn-secondary">See Live Demo</a>
           </div>
         </FadeUp>

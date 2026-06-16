@@ -237,7 +237,7 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-wrap gap-3 mb-10"
           >
-            <a href="#" data-testid="hero-cta-primary" className="btn-primary">
+            <a href="https://buy.stripe.com/test_eVq14f68Uekf8n38NYcbC00" data-testid="hero-cta-primary" className="btn-primary">
               Get Started for $29/month
               <ArrowRight size={16} />
             </a>

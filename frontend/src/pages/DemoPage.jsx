@@ -335,8 +335,8 @@ export default function DemoPage() {
                   {phase === "done" && (
                     <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="mt-4 p-4 bg-[#0f1f10] rounded-xl border border-[#4CAF50]/20">
                       <p className="text-xs text-[#888] mb-2">Want this quality every time?</p>
-                      <a href="#" data-testid="demo-upgrade-cta" className="btn-primary text-xs" style={{ padding: "9px 20px" }}>
-                        Start Free Trial <ArrowRight size={12} />
+                      <a href="https://buy.stripe.com/test_eVq14f68Uekf8n38NYcbC00" data-testid="demo-upgrade-cta" className="btn-primary text-xs" style={{ padding: "9px 20px" }}>
+                        Get Started for $29/month <ArrowRight size={12} />
                       </a>
                     </motion.div>
                   )}

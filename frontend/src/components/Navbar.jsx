@@ -70,12 +70,12 @@ export default function Navbar() {
             See Demo
           </Link>
           <a
-            href="#"
+            href="https://buy.stripe.com/test_eVq14f68Uekf8n38NYcbC00"
             data-testid="nav-cta-btn"
             className="btn-primary text-sm"
             style={{ padding: "10px 22px" }}
           >
-            Start Free Trial
+            Get Started for $29/month
           </a>
         </div>
 
@@ -111,11 +111,11 @@ export default function Navbar() {
               </Link>
             ))}
             <a
-              href="#"
+              href="https://buy.stripe.com/test_eVq14f68Uekf8n38NYcbC00"
               className="btn-primary mt-4 w-full justify-center text-sm"
               style={{ padding: "12px 22px" }}
             >
-              Start Free Trial
+              Get Started for $29/month
             </a>
           </motion.div>
         )}

@@ -155,8 +155,8 @@ export default function AboutPage() {
             Your next email is 30 seconds away.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <a href="#" data-testid="about-cta" className="btn-primary">
-              Start Free Trial <ArrowRight size={16} />
+            <a href="https://buy.stripe.com/test_eVq14f68Uekf8n38NYcbC00" data-testid="about-cta" className="btn-primary">
+              Get Started for $29/month <ArrowRight size={16} />
             </a>
             <a href="/demo" className="btn-secondary">See Demo</a>
           </div>

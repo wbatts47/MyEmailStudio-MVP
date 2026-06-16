@@ -84,7 +84,7 @@ const USE_CASES = [
       },
       {
         title: "White-label HTML export",
-        desc: "Export clean HTML you can present as your own work. Or use our ESP integrations to send on their behalf.",
+        desc: "Export clean HTML you can present as your own work. Download and paste into any ESP your client already uses.",
       },
     ],
     quote: "We cut email production time by 70% across our client accounts. Email Studio paid for itself in the first week.",
@@ -200,7 +200,7 @@ export default function UseCasesPage() {
             </div>
 
             <div className="flex gap-3 flex-wrap">
-              <a href="#" className="btn-primary text-sm">Start Free Trial <ArrowRight size={14} /></a>
+              <a href="https://buy.stripe.com/test_eVq14f68Uekf8n38NYcbC00" className="btn-primary text-sm">Get Started for $29/month <ArrowRight size={14} /></a>
               <a href="/demo" className="btn-secondary text-sm">See Demo</a>
             </div>
           </motion.div>

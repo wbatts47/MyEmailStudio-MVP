@@ -8,7 +8,7 @@ const FAQ_CATEGORIES = [
     category: "Getting Started",
     items: [
       { q: "What is Email Studio?", a: "Email Studio is an AI-powered email creation tool that turns a voice note or a few sentences into a production-ready, cross-client HTML email in seconds. No templates, no drag-and-drop, no designer required." },
-      { q: "How do I get started?", a: "Sign up for free and you get your first 5 emails at no cost. No credit card required. Describe your email, click generate, and your production HTML is ready." },
+      { q: "How do I get started?", a: "Choose a plan, enter your payment details, and you're in. Describe your email, click generate, and your production HTML is ready in seconds." },
       { q: "Do I need to know HTML or coding?", a: "No. Email Studio handles everything. You describe what you want in plain English (or out loud), and the AI generates fully structured, inline-CSS HTML." },
       { q: "What kinds of emails can I create?", a: "Promotional emails, seasonal campaigns, service reminders, re-engagement campaigns, announcements, newsletters — anything you'd send to a customer list." },
     ],
@@ -34,7 +34,7 @@ const FAQ_CATEGORIES = [
     items: [
       { q: "What counts as one email?", a: "Each generation request counts as one email. Revisions to the same email using Revision Chat don't consume additional email credits." },
       { q: "Can I cancel my subscription?", a: "Yes, anytime. Cancel from your account settings — no calls, no forms, no cancellation fees." },
-      { q: "Is there a free trial?", a: "Yes. Your first 5 emails are completely free with no credit card required. After that, choose a plan that fits your volume." },
+      { q: "Is there a free trial?", a: "Not at this time. All plans are paid subscriptions starting at $29/month. You can cancel anytime from your account settings." },
       { q: "What happens if I go over my monthly email limit?", a: "You'll receive a notification at 80% of your monthly limit. You can upgrade your plan or purchase additional email packs from your account settings." },
     ],
   },

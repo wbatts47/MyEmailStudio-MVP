@@ -76,11 +76,8 @@ export default function Footer() {
           {/* CTA */}
           <div>
             <p className="section-label mb-4">Get Started</p>
-            <p className="text-sm text-[#888] mb-4 leading-relaxed">
-              Your first 5 emails are free. No credit card required.
-            </p>
-            <a href="#" className="btn-primary text-sm" style={{ padding: "11px 24px" }}>
-              Start Free Trial
+            <a href="https://buy.stripe.com/test_eVq14f68Uekf8n38NYcbC00" className="btn-primary text-sm" style={{ padding: "11px 24px" }}>
+              Get Started for $29/month
             </a>
           </div>
         </div>

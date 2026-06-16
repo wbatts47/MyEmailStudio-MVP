@@ -1,4 +1,4 @@
-import { Check, ArrowRight, HelpCircle } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import FadeUp from "../components/FadeUp";
 import { motion, AnimatePresence } from "framer-motion";
@@ -18,25 +18,26 @@ const PLANS = [
       "Revision chat",
       "Standard email support",
     ],
-    notIncluded: ["ESP integrations", "Multi-user access"],
-    cta: "Schedule a Call",
+    notIncluded: ["Multi-user access"],
+    cta: "Get Started →",
+    ctaHref: "https://buy.stripe.com/test_eVq14f68Uekf8n38NYcbC00",
     popular: false,
   },
   {
     name: "Pro",
     price: 79,
-    tagline: "For growing teams who send email consistently and need integrations.",
+    tagline: "For growing teams who send email consistently.",
     features: [
       "60 emails per month",
       "3 user seats",
       "Brand Kit + custom fonts",
       "Unlimited email history",
-      "ESP integrations (Gmail, Mailchimp, SendGrid, Klaviyo)",
       "Revision chat — plain-language edits",
       "Priority email + chat support",
     ],
     notIncluded: ["Multi-brand management", "White-label export"],
-    cta: "Schedule a Call",
+    cta: "Get Started →",
+    ctaHref: "https://buy.stripe.com/test_4gM6oz54Qgsn32J1lwcbC01",
     popular: true,
   },
   {
@@ -50,7 +51,8 @@ const PLANS = [
       "All Pro features",
     ],
     notIncluded: [],
-    cta: "Schedule a Call",
+    cta: "Book a Call →",
+    ctaHref: "https://cal.com/myemailstudio",
     popular: false,
   },
 ];
@@ -59,7 +61,7 @@ const FAQS = [
   { q: "What counts as one email?", a: "Each generation request counts as one email. Revisions within the same session using Revision Chat don't count." },
   { q: "Can I cancel anytime?", a: "Yes. Cancel from your account settings at any time. No questions, no penalties." },
   { q: "What happens if I go over my monthly limit?", a: "You'll get a notification at 80% usage. You can upgrade mid-cycle or purchase add-on email packs." },
-  { q: "Do I need a credit card to start?", a: "No. Your first 5 emails are completely free. Only add a card when you're ready to subscribe." },
+  { q: "Do I need a credit card to start?", a: "Yes. All plans are paid subscriptions — no free tier. You can cancel anytime from your account settings." },
   { q: "Can I switch plans?", a: "Yes, upgrade or downgrade anytime. Changes take effect at the next billing cycle." },
 ];
 
@@ -140,14 +142,14 @@ export default function PricingPage() {
                   </ul>
 
                   <a
-                    href="https://calendly.com"
+                    href={plan.ctaHref}
                     data-testid={`cta-${plan.name.toLowerCase()}`}
                     className={`flex items-center justify-center gap-2 py-3.5 rounded-xl text-sm font-semibold transition-all ${
                       plan.popular ? "btn-primary" : "btn-secondary"
                     }`}
                     style={{ borderRadius: "12px", ...(plan.popular ? { boxShadow: "0 0 22px rgba(76,175,80,0.3)" } : {}) }}
                   >
-                    {plan.cta} <ArrowRight size={14} />
+                    {plan.cta}
                   </a>
                 </motion.div>
               </FadeUp>
@@ -206,11 +208,11 @@ export default function PricingPage() {
       <section className="py-20 px-6 lg:px-10 border-t border-[#2a2a2a] text-center">
         <FadeUp>
           <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif" }} className="text-4xl md:text-5xl text-[#f0f0f0] mb-5">
-            Start free. Upgrade when ready.
+            Ready to send your next email?
           </h2>
-          <p className="text-[#888] mb-8">Your first 5 emails are completely free. No credit card required.</p>
-          <a href="#" data-testid="pricing-final-cta" className="btn-primary">
-            Start Free Trial <ArrowRight size={16} />
+          <p className="text-[#888] mb-8">No contracts. Cancel anytime.</p>
+          <a href="https://buy.stripe.com/test_eVq14f68Uekf8n38NYcbC00" data-testid="pricing-final-cta" className="btn-primary">
+            Get Started for $29/month <ArrowRight size={16} />
           </a>
         </FadeUp>
       </section>
