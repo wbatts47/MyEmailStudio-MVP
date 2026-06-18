@@ -11,6 +11,7 @@ import UseCasesPage from "./pages/UseCasesPage";
 import DemoPage from "./pages/DemoPage";
 import FAQPage from "./pages/FAQPage";
 import AboutPage from "./pages/AboutPage";
+import UniversityApp from "./components/university/UniversityApp";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -27,21 +28,50 @@ const Layout = ({ children }) => (
   </div>
 );
 
+function AppRoutes() {
+  const { pathname } = useLocation();
+  const isUniversity = pathname.startsWith('/university');
+
+  if (isUniversity) {
+    return <UniversityApp />;
+  }
+
+  return (
+    <Layout>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/pricing" element={<PricingPage />} />
+        <Route path="/how-it-works" element={<HowItWorksPage />} />
+        <Route path="/use-cases" element={<UseCasesPage />} />
+        <Route path="/demo" element={<DemoPage />} />
+        <Route path="/faq" element={<FAQPage />} />
+        <Route path="/about" element={<AboutPage />} />
+      </Routes>
+    </Layout>
+  );
+}
+
 function App() {
   return (
     <BrowserRouter>
-      <ScrollToTop />
-      <Layout>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/pricing" element={<PricingPage />} />
-          <Route path="/how-it-works" element={<HowItWorksPage />} />
-          <Route path="/use-cases" element={<UseCasesPage />} />
-          <Route path="/demo" element={<DemoPage />} />
-          <Route path="/faq" element={<FAQPage />} />
-          <Route path="/about" element={<AboutPage />} />
-        </Routes>
-      </Layout>
+      <Routes>
+        <Route path="/university/*" element={<UniversityApp />} />
+        <Route path="/*" element={
+          <Layout>
+            <ScrollToTop />
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/pricing" element={<PricingPage />} />
+              <Route path="/how-it-works" element={<HowItWorksPage />} />
+              <Route path="/use-cases" element={<UseCasesPage />} />
+              <Route path="/demo" element={<DemoPage />} />
+              <Route path="/faq" element={<FAQPage />} />
+              <Route path="/about" element={<AboutPage />} />
+            </Routes>
+          </Layout>
+        } />
+      </Routes>
     </BrowserRouter>
   );
 }
